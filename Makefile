@@ -7,7 +7,18 @@ install:
 	git clone https://github.com/sysprog21/riscv-emu.git
 activate-rawimage:
 	$(TEMU) diskimage-linux-riscv-2018-09-23/root-riscv64.cfg
+
+diskimage: diskimage-linux-riscv-2018-09-23
 diskimage-linux-riscv-2018-09-23:
 	wget https://bellard.org/tinyemu/diskimage-linux-riscv-2018-09-23.tar.gz
 	tar zxvf diskimage-linux-riscv-2018-09-23.tar.gz
 	$(RM) diskimage-linux-riscv-2018-09-23.tar.gz
+
+buildroot: buildroot-riscv-2018-10-20
+buildroot-riscv-2018-10-20: buildroot-riscv-2018-10-20.tar.gz
+	tar zxvf buildroot-riscv-2018-10-20.tar.gz
+	$(RM) buildroot-riscv-2018-10-20.tar.gz
+	$(CD) buildroot-riscv-2018-10-20
+	cp configs/riscv64_defconfig .config
+buildroot-riscv-2018-10-20.tar.gz:
+	wget https://bellard.org/tinyemu/buildroot-riscv-2018-10-20.tar.gz
