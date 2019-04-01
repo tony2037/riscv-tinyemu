@@ -15,6 +15,7 @@ diskimage-linux-riscv-2018-09-23:
 	$(RM) diskimage-linux-riscv-2018-09-23.tar.gz
 
 buildroot: buildroot-riscv-2018-10-20
+	cd buildroot-riscv-2018-10-20; $(MAKE) menuconfig
 buildroot-riscv-2018-10-20: buildroot-riscv-2018-10-20.tar.gz
 	tar zxvf buildroot-riscv-2018-10-20.tar.gz
 	$(RM) buildroot-riscv-2018-10-20.tar.gz
