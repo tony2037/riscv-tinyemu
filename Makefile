@@ -7,6 +7,10 @@ install:
 	git clone https://github.com/sysprog21/riscv-emu.git
 activate-rawimage:
 	$(TEMU) diskimage-linux-riscv-2018-09-23/root-riscv64.cfg
+activate-customize:
+	echo "The password is root"
+	$(TEMU) diskimage-linux-riscv-2018-09-23/test64.cfg
+
 
 diskimage: diskimage-linux-riscv-2018-09-23
 diskimage-linux-riscv-2018-09-23:
